@@ -1,0 +1,21 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: node-dep
+  labels:
+    app: node-demo-app
+spec:
+  selector:
+    matchLabels:
+      app: node-demo-app
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: node-demo-app
+    spec:
+      containers:
+      - name: node
+        image: howmun/jenkins-docker-example:$BUILD_NUMBER
+        ports:
+        - containerPort: 3000
