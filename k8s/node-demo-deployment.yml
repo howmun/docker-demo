@@ -17,4 +17,5 @@ spec:
       containers:
       - name: node
         image: howmun/jenkins-docker-example:_BUILD_NUMBER_
+        ports:
         - containerPort: 3000
