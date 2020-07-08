@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: node-svc
+  labels:
+    app: node-demo-app
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 80
+#     targetPort: 3000
+#     protocol: TCP
+#   selector:
+#     app: node-demo-app
+spec:
+  selector:
+    app: node-demo-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
